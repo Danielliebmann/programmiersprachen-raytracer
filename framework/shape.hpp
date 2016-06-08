@@ -9,7 +9,7 @@
 //Pure Virtual Methoden
 class Shape{ 
 public:
-	virtual void area() const = 0; //= 0 auch bekannt als 'pure specifier'
+	virtual void area() const = 0; //=0 auch bekannt als 'pure specifier'. Valure =0 nicht mehr gegeben
 	virtual void volume() const = 0;
 	};
 
@@ -35,3 +35,5 @@ std::ostream& operator<<(std::ostream& os, Shape const& s)
 }
 
 vr vr2016_buw_ss
+
+#endif
