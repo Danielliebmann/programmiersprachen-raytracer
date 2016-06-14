@@ -1,43 +1,49 @@
 #include "box.hpp"
 #include <cmath>
-#include <glm/vec3.hpp>
 #include <glm/glm.hpp>
-#include "shape.hpp"
+#include <glm/vec3.hpp>
+#include <shape.hpp>
 
-//Default-Konstruktor
-Box::Box(): 
-min({0,0,0}), 
-max({0,0,0}) 
-{}
+//AUFGABE 5.2
+Box::Box():
+  min ({0, 0, 0}),
+  max ({0, 0, 0})
+  {}
 
-//Custom-Konstruktor
-Box::Box(glm::vec3 const& min, glm::vec3 const& max): 
-min(min), 
-max(max) 
-{} 
+Box::Box(glm::vec3 const& min, glm::vec3 const& max):
+  min (min),
+  max (max)
+  {}
 
-//Getter
-glm::vec3 Box::get_bmin() const{
-return min;
+//getter
+  //min
+glm::vec3 Box::get_boxmin() const
+{
+  return min;
 }
-glm::vec3 Box::get_bmax() const{
-return max;
+
+  //max
+glm::vec3 Box::get_boxmax() const
+{
+  return max;
 }
 
-float Box::volu() const{ //abs für negatives
+  //volume
+float Box::volume() const
+{
 	float x = abs(max.x - min.x);
 	float y = abs(max.y - min.y);
 	float z = abs(max.z - min.z);
 
 	return x*y*z;
 }
-float Box::area() const{
+
+  //area
+float Box::area() const
+{
 	float x = abs(max.x - min.x);
 	float y = abs(max.y - min.y);
 	float z = abs(max.z - min.z);
 
 	return 2*(x*y + x*z + y*z);
-
 }
-
-

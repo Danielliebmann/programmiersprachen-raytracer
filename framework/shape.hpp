@@ -1,40 +1,26 @@
 #ifndef SHAPE_HPP
 #define SHAPE_HPP
-#include <math.h>
-#include <cmath>
+#include <glm/glm.hpp>
+#include <glm/vec3.hpp>
 
-//Eine virtuelle Methode ist in C++ eine Methode einer Klasse, deren Einsprungadresse erst zur Laufzeit ermittelt wird.
-
-//5.1 Shape Klasse
-//Pure Virtual Methoden
-class Shape{ 
-public:
-	virtual float area() const = 0; //=0 auch bekannt als 'pure specifier'. Valure =0 nicht mehr gegeben
-	virtual float volu() const = 0;
-	};
-
-
-
-
-
-
-
-//5.4
-/*
 class Shape
 {
 public:
-	//...
-	virtual std::ostream& print(std::ostream& os) const;
+  virtual float area() const = 0;	//pure virtual, no implementation on this level, override needed
 
-	//...
+  virtual float volume() const = 0;	//pure virtual, no implementation on this level, override needed
+
+//The = 0; is also known as the "pure specifier". The virtual function does not have the value of 0 now.
+
+//Aufgabe 5.4 
+  //virtual std::ostream& print(std::ostream& os) const;  //virtual, override possible
+
 };
 
-std::ostream& operator<<(std::ostream& os, Shape const& s)
+//Aufgabe 5.4
+/*std::ostream& operator<<(std::ostream& os, Shape const& s)
 {
-	//not implemented yet
+  //not implemented yet
 }
 */
-//vr vr2016_buw_ss
-
-#endif
+#endif //#define SHAPE_HPP

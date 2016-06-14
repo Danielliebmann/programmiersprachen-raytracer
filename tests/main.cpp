@@ -1,37 +1,55 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
-#include <math.h>
-#include <cmath>
-#include <glm/vec3.hpp>
 #include <glm/glm.hpp>
-#include "box.hpp"
-#include "sphere.hpp"
-#include "shape.hpp"
+#include <glm/vec3.hpp>
+#include <sphere.hpp>
+#include <box.hpp>
 
-TEST_CASE("Aufgabe 5.2 SphereBox", "[SphereBox]")
+//sphere tests
+TEST_CASE("5.2 Sphere Default","[spheredefault]")
 {
-	SECTION("Sphere")
-	{
-	Sphere a;
-	glm::vec3 ctr_b{2.0, 4.2, -5.0};
-	glm::vec3 ctr_a{1.0, 1.0, 1.0};
-	Sphere b{ctr_b, 2.0};
+  Sphere def;
+  glm::vec3 center_default{0, 0, 0};
 
-	REQUIRE(glm::all(glm::equal(a.get_ctr(), ctr_a)));
-	REQUIRE(a.get_srad() == Approx(0));
-	REQUIRE(a.get_srad() == Approx(1.0));
-	REQUIRE(a.area() == Approx(1*1*M_PI*4));
-	REQUIRE(a.volu() == Approx((4/3)*M_PI*1*1*1));
+  REQUIRE(glm::all (glm::equal(def.get_spherecenter(), center_default)));
+  REQUIRE(def.get_sphereradius() == Approx(0));
+  REQUIRE(def.volume() == Approx(0));
+  REQUIRE(def.area() == Approx(0));
+}
+TEST_CASE("5.2 Sphere","[spherecustom]")
+{
+  Sphere cus {{2, 2, 4}, 3};
+  glm::vec3 center_custom{2, 2, 4};
 
-	REQUIRE(glm::all(glm::equal(b.get_ctr(), ctr_b)));
-	REQUIRE(b.get_srad() == Approx(2.0));
-	REQUIRE(b.area() == Approx(2*2*M_PI*4));
-	REQUIRE(b.volu() == Approx((4/3)*M_PI*2*2*2));
-	}
-
+  REQUIRE(glm::all (glm::equal(cus.get_spherecenter(), center_custom)));
+  REQUIRE(cus.get_sphereradius() == Approx(3));
+  REQUIRE(cus.volume() == Approx(4/3*M_PI*3*3*3));
+  REQUIRE(cus.area() == Approx(4*M_PI*3*3));
 }
 
+//box tests
+TEST_CASE("5.2 Box Default","[Boxdefault]")
+{
+  Box def;
+  glm::vec3 min_default{0, 0, 0};
+  glm::vec3 max_default{0, 0, 0};
 
+  REQUIRE(glm::all (glm::equal(def.get_boxmin(), min_default)));
+  REQUIRE(glm::all (glm::equal(def.get_boxmax(), max_default)));
+  REQUIRE(def.volume() == Approx(0));
+  REQUIRE(def.area() == Approx(0));
+}
+TEST_CASE("5.2 Box","[Boxcustom]")
+{
+  Box cus {{1, 1, 1},{3, 2, 3}};
+  glm::vec3 min_custom{1, 1, 1};
+  glm::vec3 max_custom{3, 2, 3};
+
+  REQUIRE(glm::all (glm::equal(cus.get_boxmin(), min_custom)));
+  REQUIRE(glm::all (glm::equal(cus.get_boxmax(), max_custom)));
+  REQUIRE(cus.volume() == Approx(4));
+  REQUIRE(cus.area() == Approx(16));
+}
 
 int main(int argc, char *argv[])
 {

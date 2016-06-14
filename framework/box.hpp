@@ -1,31 +1,36 @@
 #ifndef BOX_HPP
 #define BOX_HPP
-#include <math.h>
-#include <cmath>
+#include <glm/glm.hpp>
 #include <glm/vec3.hpp>
 #include "shape.hpp"
 
-//5.2 Box Klasse
-
+//AUFGABE 5.2
 class Box : public Shape
-{ 
+{
 public:
-	Box(); 
-	Box(glm::vec3 const& max, glm::vec3 const& min);
-	
-//Getter
-	glm::vec3 const& min() const; //automatische Erkennung des Dateityps
-	glm::vec3 const& max() const;
-	
-	float area() const override;
-	float volu() const override;
+//default constructor
+  Box();
+
+//custom contructor
+  Box(glm::vec3 const&, glm::vec3 const&); //const& points directly at the object, no copy!
+
+//getter
+glm::vec3 get_boxmin() const;
+glm::vec3 get_boxmax() const;
+float get_boxlength() const;
+float get_boxwidth() const;
+float get_boxheight() const;
+float volume() const override;
+float area() const override;
 
 //setter
-	glm::vec3 set_min();
-	glm::vec3 set_max();
-	
+glm::vec3 set_boxmin();
+glm::vec3 set_boxmax();
 
-
-
+private:
+//variablen
+  glm::vec3 min;
+  glm::vec3 max;
 };
-#endif
+
+#endif //#define BOX_HPP

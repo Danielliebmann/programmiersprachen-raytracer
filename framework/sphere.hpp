@@ -1,27 +1,35 @@
 #ifndef SPHERE_HPP
 #define SPHERE_HPP
-#include <math.h>
-#include <cmath>
+#include <glm/glm.hpp>
 #include <glm/vec3.hpp>
-#include "shape.hpp"
+#include <shape.hpp>
 
-//5.2 Sphere Klasse
 
+//AUFGABE 5.2
 class Sphere : public Shape
 {
 public:
-	Sphere();
-	Sphere(glm::vec3 const& ctr, float rad);
+//default Constructor
+  Sphere();
 
-//Getter
-	glm::vec3 const& get_ctr() const;
-	float get_srad() const;
-	float get_svolu() const;
-	float area() const override;
-	float volu() const override;
+//custom constructor
+  Sphere(glm::vec3 const&, float);
 
-//Setter
-	float set_srad(float nsrad);
+//getter
+float get_sphereradius() const;
+glm::vec3& get_spherecenter();
+
+float volume() const override;
+float area() const override;
+
+//setter
+//float set_sphereradius(float nradius);
+//glm::vec3 set_spherecenter(glm::vec3 center)
+
+private:
+//variablen
+  float radius;
+  glm::vec3 center;
 
 };
-#endif
+#endif //#define SPHERE_HPP
