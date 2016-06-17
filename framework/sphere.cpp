@@ -5,44 +5,48 @@
 #include <shape.hpp>
 #define M_PI 3.14159265358979323846
 
-//AUFGABE 5.2
-//default constructor
+//Default Konstruktor
 Sphere::Sphere():
+  Shape (std::string ("sphere"), {0, 0, 0}),
   center ({0, 0, 0}),
   radius (0)
   {}
 
-//custom contructor
-Sphere::Sphere(glm::vec3 const& center, float radius):
+//Eigener Konstruktor
+Sphere::Sphere(std::string const& name_, Color const& color_, glm::vec3 const& center, float radius):
+  Shape (name_, color_),
   center (center),
   radius (radius)
   {}
 
-//getter
-  //radius
+//Get Methoden
+//Radius
 float Sphere::get_sphereradius() const
 {
   return radius;
 }
 
-  //center
+//Mittelpunkt
 glm::vec3& Sphere::get_spherecenter()
 {
   return center;
 }
 
-  //volume
+//VOlumen
 float Sphere::volume() const
 {
   return (4/3*M_PI*radius*radius*radius);
 }
 
-  //area
+//Flächeninhalt
 float Sphere::area() const
 {
   return (4*M_PI*radius*radius);
 }
 
-
-
+std::ostream& Sphere::print(std::ostream& os) const
+{
+ os << name_ << std::endl;
+ os << color_ << std::endl;
+} 
 

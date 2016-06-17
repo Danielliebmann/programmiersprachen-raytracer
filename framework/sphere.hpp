@@ -1,33 +1,30 @@
 #ifndef SPHERE_HPP
 #define SPHERE_HPP
+
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
 #include <shape.hpp>
+#include "color.hpp"
 
-
-//AUFGABE 5.2
 class Sphere : public Shape
 {
 public:
-//default Constructor
+//Default Konstruktor
   Sphere();
 
-//custom constructor
-  Sphere(glm::vec3 const&, float);
+//Eigener Konstruktor
+  Sphere(std::string const&, Color const&, glm::vec3 const&, float);
 
-//getter
+//Get Methoden
 float get_sphereradius() const;
 glm::vec3& get_spherecenter();
 
 float volume() const override;
 float area() const override;
-
-//setter
-//float set_sphereradius(float nradius);
-//glm::vec3 set_spherecenter(glm::vec3 center)
+std::ostream& print(std::ostream& os) const override;
 
 private:
-//variablen
+//Variablen
   float radius;
   glm::vec3 center;
 

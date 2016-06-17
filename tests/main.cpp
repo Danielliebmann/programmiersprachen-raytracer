@@ -2,11 +2,12 @@
 #include <catch.hpp>
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
-#include <sphere.hpp>
-#include <box.hpp>
+#include "sphere.hpp"
+#include "box.hpp"
+#include "shape.hpp"
 
 //sphere tests
-TEST_CASE("5.2 Sphere Default","[spheredefault]")
+TEST_CASE("Spheredefault","[5.2 SDEF]")
 {
   Sphere def;
   glm::vec3 center_default{0, 0, 0};
@@ -16,19 +17,22 @@ TEST_CASE("5.2 Sphere Default","[spheredefault]")
   REQUIRE(def.volume() == Approx(0));
   REQUIRE(def.area() == Approx(0));
 }
-TEST_CASE("5.2 Sphere","[spherecustom]")
+
+TEST_CASE("Spherecustom","[5.2 SCUST]")
 {
-  Sphere cus {{2, 2, 4}, 3};
-  glm::vec3 center_custom{2, 2, 4};
+  Sphere cus {"Sphere1", {1, 0, 0}, {3, 4, 5}, 5};
+  glm::vec3 center_custom{3, 4, 5};
+  Color color_red{1, 0, 0};
 
   REQUIRE(glm::all (glm::equal(cus.get_spherecenter(), center_custom)));
-  REQUIRE(cus.get_sphereradius() == Approx(3));
-  REQUIRE(cus.volume() == Approx(4/3*M_PI*3*3*3));
-  REQUIRE(cus.area() == Approx(4*M_PI*3*3));
+  REQUIRE(cus.get_sphereradius() == Approx(5));
+  REQUIRE(cus.volume() == Approx(4/3*M_PI*5*5*5));
+  REQUIRE(cus.area() == Approx(4*M_PI*5*5));
+
 }
 
 //box tests
-TEST_CASE("5.2 Box Default","[Boxdefault]")
+TEST_CASE("Boxdefault","[5.2 BDEF]")
 {
   Box def;
   glm::vec3 min_default{0, 0, 0};
@@ -39,19 +43,33 @@ TEST_CASE("5.2 Box Default","[Boxdefault]")
   REQUIRE(def.volume() == Approx(0));
   REQUIRE(def.area() == Approx(0));
 }
-TEST_CASE("5.2 Box","[Boxcustom]")
+
+TEST_CASE("Boxcustom","[5.2 BCUST]")
 {
-  Box cus {{1, 1, 1},{3, 2, 3}};
+  Box cus {"Box1", {1, 0, 0}, {1, 1, 1},{3, 2, 3}};
   glm::vec3 min_custom{1, 1, 1};
   glm::vec3 max_custom{3, 2, 3};
+  Color color_red{1, 0, 0};
 
   REQUIRE(glm::all (glm::equal(cus.get_boxmin(), min_custom)));
   REQUIRE(glm::all (glm::equal(cus.get_boxmax(), max_custom)));
   REQUIRE(cus.volume() == Approx(4));
   REQUIRE(cus.area() == Approx(16));
 }
+//Aufgabe 4 Tests
+TEST_CASE("aufgabe4","[5.4 Output]")
+{
+  Box cus1 {"Box1", {1, 0, 0}, {1, 1, 1},{3, 2, 3}};
+  Sphere cus2 {"Sphere1", {1, 0, 0}, {2, 2, 4}, 3};
+
+  std::cout << cus1;
+  std::cout << cus2; 
+}
 
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
 }
+
+
+

@@ -3,32 +3,33 @@
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
 #include <shape.hpp>
-
-//AUFGABE 5.2
+//Default Konstruktor
 Box::Box():
+  Shape (std::string ("box"), {0, 0, 0}),
   min ({0, 0, 0}),
   max ({0, 0, 0})
   {}
-
-Box::Box(glm::vec3 const& min, glm::vec3 const& max):
+//Eigener Konstruktor
+Box::Box(std::string const& name_, Color const& color_, glm::vec3 const& min, glm::vec3 const& max):
+  Shape(name_, color_),
   min (min),
   max (max)
   {}
 
-//getter
-  //min
+//Get Methoden
+ //Für Min
 glm::vec3 Box::get_boxmin() const
 {
   return min;
 }
 
-  //max
+ //Für Max
 glm::vec3 Box::get_boxmax() const
 {
   return max;
 }
 
-  //volume
+//Volumen
 float Box::volume() const
 {
 	float x = abs(max.x - min.x);
@@ -38,7 +39,7 @@ float Box::volume() const
 	return x*y*z;
 }
 
-  //area
+//Flächeninhalt
 float Box::area() const
 {
 	float x = abs(max.x - min.x);
@@ -47,3 +48,10 @@ float Box::area() const
 
 	return 2*(x*y + x*z + y*z);
 }
+
+//5.4
+std::ostream& Box::print(std::ostream& os) const
+{
+ os << name_ << std::endl;
+ os << color_ << std::endl;
+} 
