@@ -15,6 +15,14 @@ Shape::Shape(std::string const& name_, Color const& color_):
   color_ (color_)
   {}
 
+//Destruktor
+Shape::~Shape()
+{
+	std::cout << "Shape-Destruction: " << name_ << std::endl;
+}
+
+
+
 //GET
 //für Namen
 std::string Shape::get_name_() const

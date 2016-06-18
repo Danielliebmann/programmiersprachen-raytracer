@@ -3,6 +3,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
+
 #include "shape.hpp"
 #include "color.hpp"
 
@@ -26,6 +27,7 @@ float get_boxheight() const;
 float volume() const override;
 float area() const override;
 
+//AUfgabe 5.5 Print
 std::ostream& print(std::ostream& os) const override;
 
 //Set Methoden

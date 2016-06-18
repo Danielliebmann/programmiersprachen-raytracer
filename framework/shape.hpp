@@ -2,8 +2,11 @@
 #define SHAPE_HPP
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
-#include "color.hpp"
+#include <glm/gtx/intersect.hpp>
+#include <string>
 #include <iostream>
+#include "color.hpp"
+
 
 class Shape
 {
@@ -33,7 +36,7 @@ protected: //Geschützt für abgeleitete Klassen
   std::string name_;
   Color color_;
 };
-
+//5.4
 std::ostream& operator <<(std::ostream&, Shape const&);
 
 #endif //#define SHAPE_HPP

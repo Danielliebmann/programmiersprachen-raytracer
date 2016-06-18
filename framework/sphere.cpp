@@ -43,10 +43,15 @@ float Sphere::area() const
 {
   return (4*M_PI*radius*radius);
 }
-
+//5.5
 std::ostream& Sphere::print(std::ostream& os) const
 {
  os << name_ << std::endl;
  os << color_ << std::endl;
 } 
+
+//5.6
+bool Sphere::intersect(ray const& ray, float& distance) {
+	return glm::intersectRaySphere(ray.origin_, ray.direction_, ctr_, rad_, distance);
+}
 

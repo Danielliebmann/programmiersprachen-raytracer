@@ -49,7 +49,7 @@ float Box::area() const
 	return 2*(x*y + x*z + y*z);
 }
 
-//5.4
+//5.5
 std::ostream& Box::print(std::ostream& os) const
 {
  os << name_ << std::endl;
