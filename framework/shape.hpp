@@ -37,7 +37,7 @@ Color get_color_() const;
   virtual std::ostream& print(std::ostream&) const;  //virtual, override possible
 
 //5.5 für abgeleitete Klassen
-protected: //Geschützt für abgeleitete Klassen, zugreifbar im ggsatz zu private
+protected: //kann im Gegensatz zu private auch von abgeleiteten Klassen benutzt werden
   std::string name_;
   Color color_;
 };

@@ -1,0 +1,21 @@
+//5.7
+Statischer Typ:
+Existiert nur einmal pro Klasse und nicht wie ihre Member-Pendants einmal pro Instanz. (static)
+Variablen werden in Klassendeklaration nur deklariert, aber nicht definiert. -> Def in .cpp
+int Klasse::statischeVariable = 5; (initialisieren)
+
+//5.8
+Mit und ohne virtuellen DEstruktor:
+Destruktor: Bei der Wertübergabe erzeugte Objekte werden am Ende der Funktion gelöscht. (COnst Reference um unerwünschte Nebenwirkungen zu verhindern)
+//5.9
+
+Objekthierarchie vs. Klassenhierarchie:
+OH: Objekthierarchien werden auf komplexen Objekten aufgebaut und sind dynamisch, da sie durch Erzeugen und Löschen von Objekten verändert werden können. -> gerichtete Graphen
+
+KH: Eine Menge von Klassen, deren Elemente durch die Relation "Spezialisierung" miteinander in Beziehung gesetzt sind, bezeichnet man als Klassenhierarchie, wenn jede Klasse höchstens eine Basisklasse besitzt. (Basisklasse ist die Grundklasse der abgeleiteten Klasse)
+
+
+Objektdiagramm vs. Klassendiagramm:
+OD: Strukturdiagramm, das bestimmte Sicht auf die Struktur des modellierten Systems zeigt. Besimmte Attribute auflistbar. Ähnlich dem KLassendiagramm, nur dass im obersten Kasten nicht nur der Klassenname steht, sonder "Instanzname : Typ" und zwar unterstrichen. Wenn Namen nicht bekannt, können sie weggelassen werden.
+
+KD: z.B. UML KLassendiagramm. Mehrere Klassen und ihre Abhängigkeiten, Parameter und Zugrhörigkeiten.

@@ -9,7 +9,7 @@
 #include "color.hpp"
 #include "ray.hpp"
 
-class Sphere : public Shape
+class Sphere : public Shape //abgeleitete Klasse, override nutzbar
 {
 public:
 //Default Konstruktor
