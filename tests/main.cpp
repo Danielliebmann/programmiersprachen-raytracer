@@ -1,11 +1,41 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
+
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
 #include <glm/gtx/intersect.hpp>
+
 #include "sphere.hpp"
 #include "box.hpp"
 #include "shape.hpp"
+#include "ray.hpp"
+
+
+//AUfgabe 6 intersect
+
+TEST_CASE("intersectRaySphere", "[5.6intersect]")
+{
+	//RAY
+	glm::vec3 ray_origin{0.0,0.0,0.0};
+	// ray direction has to be normalized!
+	// you can use: v = glm:: normalize(vector)
+	glm::vec3 ray_direction{0.0,0.0,1.0};
+
+	//Sphere
+	glm::vec3 sphere_center{0.0,0.0,5.0};
+	float sphere_radius{1.0};
+
+	float distance {0.0};
+
+	auto result = glm::intersectRaySphere(
+	ray_origin, 
+	ray_direction, 
+	sphere_center, 
+	sphere_radius, 
+	distance);
+	REQUIRE(distance == Approx(4.0f));
+}
+
 
 //sphere tests
 TEST_CASE("Spheredefault","[5.2 SDEF]")
@@ -57,8 +87,8 @@ TEST_CASE("Boxcustom","[5.2 BCUST]")
   REQUIRE(cus.volume() == Approx(4));
   REQUIRE(cus.area() == Approx(16));
 }
-//Aufgabe 4 Tests
-TEST_CASE("aufgabe4","[5.4 Output]")
+//Aufgabe 5 Tests
+TEST_CASE("AusgabeBoxSphere","[5.5 Output]")
 {
   Box cus1 {"Box1", {1, 0, 0}, {1, 1, 1},{3, 2, 3}};
   Sphere cus2 {"Sphere1", {1, 0, 0}, {2, 2, 4}, 3};
@@ -67,28 +97,6 @@ TEST_CASE("aufgabe4","[5.4 Output]")
   std::cout << cus2 << std::endl; 
 }
 
-//AUfgabe 6 intersect
-
-TEST_CASE("intersectRaySphere", "[5.6intersect]")
-{
-	//RAY
-	glm::vec3 ray_origin{0.0,0.0,0.0};
-	// ray direction has to be normalized!
-	// you can use: v = glm:: normalize(vector)
-	glm::vec3 ray_direction{0.0,0.0,1.0};
-
-	//Sphere
-	glm::vec3 sphere_center{0.0,0.0,5.0};
-	float distance {0.0};
-
-	auto result = glm::intersect RaySphere(
-	ray_origin, 
-	ray_direction, 
-	sphere_center, 
-	sphere_radius, 
-	distance);
-	REQUIRE(distance == Approx(4.0f));
-}
 
 int main(int argc, char *argv[])
 {

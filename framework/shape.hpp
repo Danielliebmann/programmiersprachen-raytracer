@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include "color.hpp"
+#include "ray.hpp"
 
 
 class Shape
@@ -18,9 +19,10 @@ public:
   Shape(std::string const&, Color const&);
 
 //Die Virtuelle Methode
-  virtual float area() const = 0;	//pure virtual, no implementation on this level, override needed
+  virtual float area() const = 0;	
+//pure virtual, no implementation on this level, override needed
 
-  virtual float volume() const = 0;	//pure virtual, no implementation on this level, override needed
+  virtual float volume() const = 0;	
 
 //The = 0; is also known as the "pure specifier". The virtual function does not have the value of 0 now.
 

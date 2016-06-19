@@ -1,7 +1,9 @@
 //Für 4.3 Color
 #include <shape.hpp>
-
-
+#include <glm/glm.hpp>
+#include <glm/vec3.hpp>
+#include <glm/gtx/intersect.hpp>
+#include <iostream>
 
 //DEfault Konstruktor
 Shape::Shape():
@@ -15,11 +17,6 @@ Shape::Shape(std::string const& name_, Color const& color_):
   color_ (color_)
   {}
 
-//Destruktor
-Shape::~Shape()
-{
-	std::cout << "Shape-Destruction: " << name_ << std::endl;
-}
 
 
 

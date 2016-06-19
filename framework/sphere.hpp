@@ -3,7 +3,8 @@
 
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
-
+#include <glm/gtx/intersect.hpp>
+#include <iostream>
 #include "shape.hpp"
 #include "color.hpp"
 #include "ray.hpp"
@@ -27,15 +28,15 @@ float area() const override;
 void center(glm::vec3 const& ctr);
 void radius(float const& rad);
 
-bool intersect(Ray const& ray, float& distance);
+bool intersect(Ray const&, float&);
 
 //5.5
 std::ostream& print(std::ostream& os) const override;
 
 private:
 //Variablen
-  float radius;
-  glm::vec3 center;
+  float radius_;
+  glm::vec3 center_;
 
 };
 #endif //#define SPHERE_HPP
