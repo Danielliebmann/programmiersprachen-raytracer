@@ -18,6 +18,9 @@ public:
 //Eigener Konstruktor
   Sphere(std::string const&, Color const&, glm::vec3 const&, float);
 
+//5.8 Destruktor
+virtual ~Sphere();
+
 //Get Methoden
 float get_sphereradius() const;
 glm::vec3& get_spherecenter();

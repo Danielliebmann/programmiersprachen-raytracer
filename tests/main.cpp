@@ -97,9 +97,21 @@ TEST_CASE("AusgabeBoxSphere","[5.5 Output]")
   std::cout << cus2 << std::endl; 
 }
 
+//Aufgabe 8 Destruktor
+TEST_CASE("Destruktor", "[5.8 Destruktor]"){
+	Color red (255, 0, 0);
+	glm::vec3 position (0, 0, 0);
+	Sphere * s1 = new Sphere ("sphere0", red, position, 1.2); //musste ich nach der KLasse anordnen
+	Shape * s2 = new Sphere ("sphere0", red, position, 1.2);
+	s1 -> print (std::cout);
+	s2 -> print (std::cout);
+	delete s1;
+	delete s2;
+}
 
 int main(int argc, char *argv[])
 {
+
   return Catch::Session().run(argc, argv);
 }
 

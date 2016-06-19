@@ -17,7 +17,11 @@ Shape::Shape(std::string const& name_, Color const& color_):
   color_ (color_)
   {}
 
-
+//5.8 Destruktor
+ Shape::~Shape()
+{
+	std::cout << "Destruktor Shape" << std::endl;
+}
 
 
 //GET

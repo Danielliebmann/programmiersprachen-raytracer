@@ -19,6 +19,12 @@ Sphere::Sphere(std::string const& name_, Color const& color_, glm::vec3 const& c
   radius_ (radius)
   {}
 
+//5.8 Destruktor
+Sphere::~Sphere()
+{
+	std::cout << "Destruktor Sphere" << std::endl;
+}
+
 //Get Methoden
 //Radius
 float Sphere::get_sphereradius() const
@@ -54,4 +60,5 @@ std::ostream& Sphere::print(std::ostream& os) const
 bool Sphere::intersect(Ray const& ray, float& distance) {
 	return glm::intersectRaySphere(ray.origin, ray.direction, center_, radius_, distance);
 }
+
 

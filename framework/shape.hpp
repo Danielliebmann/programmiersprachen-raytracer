@@ -18,6 +18,9 @@ public:
 //Eigener Konstruktor
   Shape(std::string const&, Color const&);
 
+//5.8 destruktor
+~Shape();
+
 //Die Virtuelle Methode
   virtual float area() const = 0;	
 //pure virtual, no implementation on this level, override needed
