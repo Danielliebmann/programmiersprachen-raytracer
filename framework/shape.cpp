@@ -37,7 +37,8 @@ Color Shape::get_color_() const
 }
 
 //5.4
-std::ostream& Shape::print(std::ostream& os) const
+std::ostream& Shape::print(std::ostream& os) const //& call-by-reference
+//Anstatt zu kopieren, werden Referenzen auf die Datei übergeben. Aufruf + Funktion zeigen auf selbes Objekt und arbeiten auch mit demselbigen, dass außerhalb sichtbar ist.
 {
  os << name_ << std::endl;
  os << color_ << std::endl;

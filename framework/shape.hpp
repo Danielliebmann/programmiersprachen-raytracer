@@ -19,7 +19,7 @@ public:
   Shape(std::string const&, Color const&);
 
 //5.8 destruktor
-~Shape();
+virtual ~Shape();
 
 //Die Virtuelle Methode
   virtual float area() const = 0;	
@@ -36,8 +36,8 @@ Color get_color_() const;
 //Aufgabe 5.4 
   virtual std::ostream& print(std::ostream&) const;  //virtual, override possible
 
-
-protected: //Geschützt für abgeleitete Klassen
+//5.5 für abgeleitete Klassen
+protected: //Geschützt für abgeleitete Klassen, zugreifbar im ggsatz zu private
   std::string name_;
   Color color_;
 };

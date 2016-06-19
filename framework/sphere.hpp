@@ -19,7 +19,7 @@ public:
   Sphere(std::string const&, Color const&, glm::vec3 const&, float);
 
 //5.8 Destruktor
-virtual ~Sphere();
+~Sphere();
 
 //Get Methoden
 float get_sphereradius() const;
