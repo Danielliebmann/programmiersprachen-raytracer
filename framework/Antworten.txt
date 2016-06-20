@@ -7,6 +7,7 @@ int Klasse::statischeVariable = 5; (initialisieren)
 //5.8
 Mit und ohne virtuellen DEstruktor:
 Destruktor: Bei der Wertübergabe erzeugte Objekte werden am Ende der Funktion gelöscht. (COnst Reference um unerwünschte Nebenwirkungen zu verhindern)
+Wird zum Bereinigen von FUnktionen verwendet. Mit virtual Destruktoren kann man Objekte zerstören, deren Typ man nicht kennt.
 //5.9
 
 Objekthierarchie vs. Klassenhierarchie:
