@@ -4,6 +4,8 @@ Existiert nur einmal pro Klasse und nicht wie ihre Member-Pendants einmal pro In
 Variablen werden in Klassendeklaration nur deklariert, aber nicht definiert. -> Def in .cpp
 int Klasse::statischeVariable = 5; (initialisieren)
 
+Antwort: Sphere bleibt sphere vom Typ her und ist statisch. Beim zweiten allerdings wird Shape zu Sphere und ändert den Datentypen, was Dynamisch ist.
+
 //5.8
 Mit und ohne virtuellen DEstruktor:
 Destruktor: Bei der Wertübergabe erzeugte Objekte werden am Ende der Funktion gelöscht. (COnst Reference um unerwünschte Nebenwirkungen zu verhindern)

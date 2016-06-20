@@ -10,14 +10,18 @@ Sphere::Sphere():
   Shape (std::string ("sphere"), {0, 0, 0}),
   center_ ({0, 0, 0}),
   radius_ (0)
-  {}
+  {
+	std::cout << "Konstruktor Sphere" << std::endl;
+  }
 
 //Eigener Konstruktor
 Sphere::Sphere(std::string const& name_, Color const& color_, glm::vec3 const& center, float radius):
   Shape (name_, color_),
   center_ (center),
   radius_ (radius)
-  {}
+  {
+	std::cout << "Destruktor Sphere" << std::endl;	
+  }
 
 //5.8 Destruktor
 Sphere::~Sphere()

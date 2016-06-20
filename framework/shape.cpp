@@ -9,15 +9,21 @@
 Shape::Shape():
   name_ (""),
   color_ ({0, 0 ,0})
-  {}
+  {
+	std::cout << "Konstruktor Shape" << std::endl;
+  }
 
 //Eigener KOnstruktor
 Shape::Shape(std::string const& name_, Color const& color_):
   name_(name_),
   color_ (color_)
-  {}
+  {
+	std::cout << "Konstruktor Shape" << std::endl;
+  }
 
 //5.8 Destruktor
+//Bei Aufruf ohne virtual(.hpp) wird das Shape Objekt mit dem Destruktor von Shape bearbeitet und nicht dem von 
+//Sphere, da er keinen Zugriff mehr auf den Sphere Destruktor hat. (Deshalb fehlt die Ausgabe von Sphere")
  Shape::~Shape()
 {
 	std::cout << "Destruktor Shape" << std::endl;

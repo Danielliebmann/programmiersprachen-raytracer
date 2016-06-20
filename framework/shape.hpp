@@ -14,9 +14,11 @@ class Shape
 public:
 //DEfault KOnstruktor
   Shape();
+ 
 
 //Eigener Konstruktor
   Shape(std::string const&, Color const&);
+
 
 //5.8 destruktor
 virtual ~Shape();
