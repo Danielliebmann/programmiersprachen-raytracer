@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include "color.hpp"
+#include "material.hpp"
 #include "ray.hpp"
 
 
@@ -17,7 +18,7 @@ public:
  
 
 //Eigener Konstruktor
-  Shape(std::string const&, Color const&);
+  Shape(std::string const&, Material const&);
 
 
 //5.8 destruktor
@@ -33,7 +34,7 @@ virtual ~Shape();
 
 //Get Methoden
 std::string get_name_() const;
-Color get_color_() const;
+Material get_material() const;
 
 //Aufgabe 5.4 
   virtual std::ostream& print(std::ostream&) const;  //virtual, override possible
@@ -41,7 +42,7 @@ Color get_color_() const;
 //5.5 für abgeleitete Klassen
 protected: //kann im Gegensatz zu private auch von abgeleiteten Klassen benutzt werden
   std::string name_;
-  Color color_;
+  Material mat;
 };
 //5.4
 std::ostream& operator <<(std::ostream&, Shape const&);

@@ -4,11 +4,12 @@
 #include <glm/vec3.hpp>
 #include <glm/gtx/intersect.hpp>
 #include <iostream>
+#include "material.hpp"
 
 //DEfault Konstruktor
 Shape::Shape():
   name_ (""),
-  color_ ({0, 0 ,0})
+  mat {}
   {
 	std::cout << "Konstruktor Shape" << std::endl;
   }
@@ -16,7 +17,7 @@ Shape::Shape():
 //Eigener KOnstruktor
 Shape::Shape(std::string const& name_, Color const& color_):
   name_(name_),
-  color_ (color_)
+  mat (mat)
   {
 	std::cout << "Konstruktor Shape" << std::endl;
   }
@@ -37,9 +38,9 @@ std::string Shape::get_name_() const
   return name_;
 }
 //Für Color
-Color Shape::get_color_() const
+Material Shape::get_material() const
 {
-  return color_;
+  return mat;
 }
 
 //5.4
@@ -47,7 +48,7 @@ std::ostream& Shape::print(std::ostream& os) const //& call-by-reference
 //Anstatt zu kopieren, werden Referenzen auf die Datei übergeben. Aufruf + Funktion zeigen auf selbes Objekt und arbeiten auch mit demselbigen, dass außerhalb sichtbar ist.
 {
  os << name_ << std::endl;
- os << color_ << std::endl;
+ os << mat << std::endl;
 } 
 
 std::ostream& operator <<(std::ostream& os, Shape const& s)

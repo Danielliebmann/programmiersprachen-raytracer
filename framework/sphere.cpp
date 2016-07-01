@@ -5,6 +5,8 @@
 #include <shape.hpp>
 #define M_PI 3.14159265358979323846
 #include <iostream>
+#include "material.hpp"
+
 //Default Konstruktor
 Sphere::Sphere():
   Shape (std::string ("sphere"), {0, 0, 0}),
@@ -15,8 +17,8 @@ Sphere::Sphere():
   }
 
 //Eigener Konstruktor
-Sphere::Sphere(std::string const& name_, Color const& color_, glm::vec3 const& center, float radius):
-  Shape (name_, color_),
+Sphere::Sphere(std::string const& name_, Material const& mat, glm::vec3 const& center, float radius):
+  Shape (name_, mat),
   center_ (center),
   radius_ (radius)
   {
@@ -57,7 +59,7 @@ float Sphere::area() const
 std::ostream& Sphere::print(std::ostream& os) const
 {
  os << name_ << std::endl;
- os << color_ << std::endl;
+ os << mat << std::endl;
 } 
 
 //5.6

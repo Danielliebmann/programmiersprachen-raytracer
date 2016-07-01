@@ -3,15 +3,17 @@
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
 #include <shape.hpp>
+#include "material.hpp"
+
 //Default Konstruktor
 Box::Box():
-  Shape (std::string ("box"), {0, 0, 0}),
+  Shape (std::string ("box"), {}),
   min ({0, 0, 0}),
   max ({0, 0, 0})
   {}
 //Eigener Konstruktor
-Box::Box(std::string const& name_, Color const& color_, glm::vec3 const& min, glm::vec3 const& max):
-  Shape(name_, color_),
+Box::Box(std::string const& name_, Material const& mat, glm::vec3 const& min, glm::vec3 const& max):
+  Shape(name_, mat),
   min (min),
   max (max)
   {}

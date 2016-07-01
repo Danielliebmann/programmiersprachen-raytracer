@@ -8,6 +8,7 @@
 #include "shape.hpp"
 #include "color.hpp"
 #include "ray.hpp"
+#include "material.hpp"
 
 class Sphere : public Shape //abgeleitete Klasse, override nutzbar
 {
@@ -16,7 +17,7 @@ public:
   Sphere();
 
 //Eigener Konstruktor
-  Sphere(std::string const&, Color const&, glm::vec3 const&, float);
+  Sphere(std::string const&, Material const&, glm::vec3 const&, float);
 
 //5.8 Destruktor
 ~Sphere();

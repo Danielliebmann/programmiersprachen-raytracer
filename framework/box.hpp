@@ -6,6 +6,7 @@
 
 #include "shape.hpp"
 #include "color.hpp"
+#include "material.hpp"
 
 class Box : public Shape
 {
@@ -14,7 +15,7 @@ public:
   Box();
 
 //Eigener Konstruktor
-  Box(std::string const&, Color const&, glm::vec3 const&, glm::vec3 const&); //const& points directly at the object, no copy!
+  Box(std::string const&, Material const&, glm::vec3 const&, glm::vec3 const&); //const& points directly at the object, no copy!
 
 //Get Methoden
 glm::vec3 get_boxmin() const;
