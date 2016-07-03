@@ -15,7 +15,7 @@ Shape::Shape():
   }
 
 //Eigener KOnstruktor
-Shape::Shape(std::string const& name_, Color const& color_):
+Shape::Shape(std::string const& name_, Material const& mat):
   name_(name_),
   mat (mat)
   {

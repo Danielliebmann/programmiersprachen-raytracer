@@ -28,6 +28,10 @@ float get_boxheight() const;
 float volume() const override;
 float area() const override;
 
+bool intersect(Ray const& ray, float& t) override;
+glm::vec3 const& min_() const;
+glm::vec3 const& max_() const;
+
 //AUfgabe 5.5 Print
 std::ostream& print(std::ostream& os) const override;
 

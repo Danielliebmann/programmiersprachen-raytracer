@@ -55,5 +55,46 @@ float Box::area() const
 std::ostream& Box::print(std::ostream& os) const
 {
  os << name_ << std::endl;
- os << color_ << std::endl;
+ os << mat << std::endl;
 } 
+
+bool Box::intersect(Ray const& ray, float& t) {
+glm::vec3 lichtbruch{1.0f,1.0f,1.0f};
+
+//lichtbrechung, wenn der Ray auf ein Objekt trifft und "weitergeleite" wird!
+lichtbruch.x = 1.0f / ray.direction.x;
+lichtbruch.y = 1.0f / ray.direction.y;
+lichtbruch.z = 1.0f / ray.direction.z;
+// lb is the corner of AABB with minimal coordinates - left bottom, rt is maximal corner
+
+//x
+float rp1 = (min.x - ray.origin.x)*lichtbruch.x;//rp=rayposition
+float rp2 = (max.x - ray.origin.x)*lichtbruch.x;//Origin ist der Startpunkt, direction die Richtung
+//y
+float rp3 = (min.y - ray.origin.y)*lichtbruch.y;
+float rp4 = (max.y - ray.origin.y)*lichtbruch.y;
+//z
+float rp5 = (min.z - ray.origin.z)*lichtbruch.z;
+float rp6 = (max.z - ray.origin.z)*lichtbruch.z;
+
+float tmin = std::max(std::max(std::min(rp1, rp2), std::min(rp3, rp4)), std::min(rp5, rp6));
+float tmax = std::min(std::min(std::max(rp1, rp2), std::max(rp3, rp4)), std::max(rp5, rp6));
+
+
+if (tmax < 0)
+{
+    t = tmax;
+    return false;
+}
+
+
+if (tmin > tmax)
+{
+    t = tmax;
+    return false;
+}
+
+t = tmin;
+return true;
+
+}

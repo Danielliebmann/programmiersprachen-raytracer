@@ -19,7 +19,8 @@ public:
 
 //Eigener Konstruktor
   Shape(std::string const&, Material const&);
-
+//6.3
+virtual bool intersect(Ray const& ray, float& t) = 0;
 
 //5.8 destruktor
 virtual ~Shape();

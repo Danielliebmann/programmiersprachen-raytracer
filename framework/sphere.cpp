@@ -9,7 +9,7 @@
 
 //Default Konstruktor
 Sphere::Sphere():
-  Shape (std::string ("sphere"), {0, 0, 0}),
+  Shape (std::string ("sphere"), {}),
   center_ ({0, 0, 0}),
   radius_ (0)
   {
