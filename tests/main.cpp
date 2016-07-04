@@ -14,53 +14,29 @@
 #include "material.hpp"
 
 
-
-TEST_CASE ("intersectRaySphere","[intersect]" )
+TEST_CASE("6.3 Box geschnitten", "[6.3intersect]")
 {
-	glm::vec3 ray_origin{0.0,0.0,0.0};
-	glm::vec3 ray_direction{0.0,0.0,1.0};
-	glm::vec3 sphere_center{0.0,0.0,5.0};
+    SECTION("schneidet")
+    {
+	Material m1{{"Abc"},{1 ,0.5 ,0.75},{1, 0.5, 0.75},{1, 0.5,0.75},{0.9}};
+        float d = 0;
 
-	float sphere_radius{1.0};
-	float distance{0.0};
+        Box b1 = Box{"Box", m1, {-1,2,-1}, {1,4,1}};
+        Ray r = Ray{{0,0,0}, {0,1,0}};
+        REQUIRE(b1.intersect(r, d) == true);//r=ray, d=distance
+        REQUIRE(d == 2);
+    }
 
-	auto result = glm::intersectRaySphere		(ray_origin,ray_direction,sphere_center,sphere_radius,distance);
-	REQUIRE(distance==Approx(4.0f));
+    SECTION("schneidet nicht")
+    {
+	Material m1{{"Abc"},{1 ,0.5 ,0.75},{1, 0.5, 0.75},{1, 0.5,0.75},{0.9}};
+        float d = 0;
+
+        Box b1 = Box{"Box", m1, {-1,2,1}, {1,4,2}};
+        Ray r = Ray{{0,0,0}, {0,1,0}};
+        REQUIRE(b1.intersect(r, d) == false);//r=ray, d=distance
+    }
 }
-
-TEST_CASE("6.3 Box und Kugel","[6.3]")
-{
-	Box box1  {};
-	Box box2 {glm::vec3{0,2,4},glm::vec3{1,4,8}};
-
-	glm::vec3 null{0,0,0};
-	glm::vec3 a{0,2,4};
-	glm::vec3 b{1,4,8};
-
-	REQUIRE(box1.get_boxmin()==null);
-	REQUIRE(box1.get_boxmax()==null);
-	REQUIRE(box2.get_boxmin()==a);
-	REQUIRE(box2.get_boxmax()==b);
-	REQUIRE(box2.volume()== 8);
-	REQUIRE(box2.area()==28);
-
-	Sphere kugel1 {};
-	Sphere kugel2 {glm::vec3{3,2,1},4};
-
-	glm::vec3 c{3,2,1};
-
-	REQUIRE(kugel1.get_get_spherecenter()==null);
-	REQUIRE(kugel1.get_sphereradius()==1);
-	REQUIRE(kugel2.get_spherecenter()==c);
-	REQUIRE(kugel2.get_sphereradius()==4);
-	REQUIRE(kugel2.volume()== Approx(268.08258f));
-	REQUIRE(kugel2.area()==Approx(201.06194f));
-
-}
-
-
-
-
 /*
 //AUfgabe 6 intersect
 
